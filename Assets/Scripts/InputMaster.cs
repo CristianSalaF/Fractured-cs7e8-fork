@@ -89,6 +89,15 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Retry"",
+                    ""type"": ""Button"",
+                    ""id"": ""8097e7f9-3a13-42f0-a5d5-1801d0ca70ef"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -498,6 +507,28 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                     ""action"": ""QuitGame"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6002f6fe-3f95-4310-8cbc-75cf6203778c"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Retry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e99eb28-eec8-4b54-9310-1dc388a35ab2"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Retry"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -535,6 +566,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         m_Player_PauseGame = m_Player.FindAction("PauseGame", throwIfNotFound: true);
         m_Player_ToggleLang = m_Player.FindAction("ToggleLang", throwIfNotFound: true);
         m_Player_QuitGame = m_Player.FindAction("QuitGame", throwIfNotFound: true);
+        m_Player_Retry = m_Player.FindAction("Retry", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -601,6 +633,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_PauseGame;
     private readonly InputAction m_Player_ToggleLang;
     private readonly InputAction m_Player_QuitGame;
+    private readonly InputAction m_Player_Retry;
     public struct PlayerActions
     {
         private @InputMaster m_Wrapper;
@@ -612,6 +645,7 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         public InputAction @PauseGame => m_Wrapper.m_Player_PauseGame;
         public InputAction @ToggleLang => m_Wrapper.m_Player_ToggleLang;
         public InputAction @QuitGame => m_Wrapper.m_Player_QuitGame;
+        public InputAction @Retry => m_Wrapper.m_Player_Retry;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -642,6 +676,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @QuitGame.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuitGame;
                 @QuitGame.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuitGame;
                 @QuitGame.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuitGame;
+                @Retry.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRetry;
+                @Retry.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRetry;
+                @Retry.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRetry;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -667,6 +704,9 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
                 @QuitGame.started += instance.OnQuitGame;
                 @QuitGame.performed += instance.OnQuitGame;
                 @QuitGame.canceled += instance.OnQuitGame;
+                @Retry.started += instance.OnRetry;
+                @Retry.performed += instance.OnRetry;
+                @Retry.canceled += instance.OnRetry;
             }
         }
     }
@@ -689,5 +729,6 @@ public partial class @InputMaster : IInputActionCollection2, IDisposable
         void OnPauseGame(InputAction.CallbackContext context);
         void OnToggleLang(InputAction.CallbackContext context);
         void OnQuitGame(InputAction.CallbackContext context);
+        void OnRetry(InputAction.CallbackContext context);
     }
 }

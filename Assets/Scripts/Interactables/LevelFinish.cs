@@ -23,20 +23,27 @@ public class LevelFinish : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (_indexSceneToLoad < 0)
+            PlayerController pc = other.GetComponent<PlayerController>();
+            if (pc != null)
             {
-                PlayerController pc = other.GetComponent<PlayerController>();
+                pc.enabled = false;
 
-                if (pc != null)
-                {
-                    pc.enabled = false;
-                    
-                    pc.PlayGongSFX();
-                }
+                pc.PlayGongSFX();
                 
-                _gameManager.SetGameOver();
+                if (_indexSceneToLoad < 0)
+                {
+
+                    _gameManager.SetGameOver();
+                }
+                else StartCoroutine(LoadNext());
             }
-            else SceneManager.LoadScene(_indexSceneToLoad);
         }
+    }
+
+    IEnumerator LoadNext()
+    {
+        yield return new WaitForSeconds(3f);
+        
+        SceneManager.LoadScene(_indexSceneToLoad);
     }
 }

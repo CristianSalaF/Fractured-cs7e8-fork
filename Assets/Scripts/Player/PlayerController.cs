@@ -4,6 +4,7 @@ using Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
         //handling the calls from player's input instead so it at least is playable
         // _inputMaster.Player.PauseGame.performed += mInput => _gameManager.PauseGame();
         _inputMaster.Player.ToggleLang.performed += mInput => _setLanguageScript.ToggleLang();
+        _inputMaster.Player.Retry.performed += mInput => ReloadScene();
         _inputMaster.Player.QuitGame.performed += mInput => Application.Quit();
     }
 
@@ -135,10 +137,15 @@ public class PlayerController : MonoBehaviour
     {
         _sndFragmentPickup.Play();
     }
-    
+
     public void PlayGongSFX()
     {
         _sndGong.Play();
+    }
+
+    private void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void OnEnable()
