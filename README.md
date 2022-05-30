@@ -1,6 +1,8 @@
 # Fractured-GameDevTV-public
 Fractured © 2022 by Csf91 is licensed under CC BY-NC 4.0
 
+To load this project, use Unity 2021.3.2f1 (Latest LTS at the moment of upload)
+
 https://twitter.com/Csf91Dev 
 http://creativecommons.org/licenses/by-nc/4.0/
 
