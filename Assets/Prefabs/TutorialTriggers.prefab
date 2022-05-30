@@ -1,0 +1,393 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &86259586319589205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86259586319589204}
+  - component: {fileID: 5763950928476191486}
+  - component: {fileID: 86259586319589207}
+  m_Layer: 0
+  m_Name: TriggerFragmentos
+  m_TagString: Tutorial
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86259586319589204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86259586319589205}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 38.000153, y: 1, z: 0}
+  m_LocalScale: {x: 5, y: 1, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 86259587478570611}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5763950928476191486
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86259586319589205}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &86259586319589207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86259586319589205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e7aaa2ce543464a80f3a44ad94df41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tutorialText: "Fuiste lanzado desde my, muy lejos y te rompiste en fragmentos,
+    perdiendo casi toda tu masa.\n\nRecl\xE1malos pasando sobre las peanas doradas,
+    donde han sido colocados para que los puedas encontrar."
+  _tutorialTextEN: 'You were thrown from far, far away and broke into little pieces
+    all over the place, losing almost all of your mass.
+
+
+    Reclaim them by going
+    over the golden pads, where they have been put for you to find.'
+  _setLanguage: {fileID: 0}
+  _tutText: {fileID: 0}
+  _tutImage: {fileID: 0}
+--- !u!1 &86259587011347106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86259587011347109}
+  - component: {fileID: 6391660470513997328}
+  - component: {fileID: 86259587011347108}
+  m_Layer: 0
+  m_Name: TriggerObstaculos
+  m_TagString: Tutorial
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86259587011347109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86259587011347106}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 40.00016, y: 1, z: -20}
+  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 86259587478570611}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6391660470513997328
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86259587011347106}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &86259587011347108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86259587011347106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e7aaa2ce543464a80f3a44ad94df41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tutorialText: "Ahora que has recuperado algo de tu masa es un buen momento para
+    hablar de obst\xE1culos.\n\nDependiendo de cuanta masa hayas recuperado, habr\xE1
+    obst\xE1culos que te bloquear\xE1n el paso (pero antes pod\xEDas pasar). Lo mismo
+    puede ocurrir si eres demasiado peque\xF1o."
+  _tutorialTextEN: 'Now that you have recovered part of your mass it''s time to talk
+    about obstacles.
+
+
+    Depending on how much mass you have recovered, there will
+    be obstacles that will block your way (but previously you could go through them).
+    The same applies if you are too small.'
+  _setLanguage: {fileID: 0}
+  _tutText: {fileID: 0}
+  _tutImage: {fileID: 0}
+--- !u!1 &86259587267834491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86259587267834490}
+  - component: {fileID: 2889982960080480945}
+  - component: {fileID: 86259587267834493}
+  m_Layer: 0
+  m_Name: TriggerControles
+  m_TagString: Tutorial
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86259587267834490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86259587267834491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 1, z: 0}
+  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 86259587478570611}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2889982960080480945
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86259587267834491}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &86259587267834493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86259587267834491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e7aaa2ce543464a80f3a44ad94df41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tutorialText: "Controles de la c\xE1mara.\n\nPulsa Q y E para rotarla hacia la
+    izquierda y derecha, R/F para alejarla o acercarla. O bien, con las teclas 4/6,8/2
+    del teclado num\xE9rico!\n\nSi tienes un mando, puedes utilizar el joystick derecho
+    para la c\xE1mara.\n"
+  _tutorialTextEN: 'Camera controls.
+
+
+    You can do so by pressing Q/E to rotate
+    it to the left/right, R/F to zoom out/in. You can also use numpad''s 4/6,8/2.
+
+
+    If
+    you have a controller, you can rotate it using the right joystick.'
+  _setLanguage: {fileID: 0}
+  _tutText: {fileID: 0}
+  _tutImage: {fileID: 0}
+--- !u!1 &86259587478570608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86259587478570611}
+  m_Layer: 0
+  m_Name: TutorialTriggers
+  m_TagString: Tutorial
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86259587478570611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86259587478570608}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 86259587714764766}
+  - {fileID: 86259587267834490}
+  - {fileID: 86259586319589204}
+  - {fileID: 86259587011347109}
+  - {fileID: 86259587838162584}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &86259587714764767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86259587714764766}
+  - component: {fileID: 1237386989898392271}
+  - component: {fileID: 86259587714764753}
+  m_Layer: 0
+  m_Name: TriggerIntro
+  m_TagString: Tutorial
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86259587714764766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86259587714764767}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 5, y: 1, z: 5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 86259587478570611}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1237386989898392271
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86259587714764767}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &86259587714764753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86259587714764767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e7aaa2ce543464a80f3a44ad94df41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tutorialText: "Bienvenido/a a Fragmented!\n\r\nPara moverte, usa las teclas WASD,
+    las flechas del teclado, \no el jostick izquierdo del mando.\n\nPara saltar el
+    tutorial, ve a la derecha.\n\nESC: Salir del juego (no confirma debido a bug
+    de UI !).\nTAB/ \"Select\" button: Cambiar Idioma / Change language."
+  _tutorialTextEN: "Welcome to Fragmented!.\n\nYou can move by pressing WASD, the
+    arrow keys, \nor your controller's left joystick.\n\nTo skip the tutorial, go
+    to the right.\n\nESC: Quit game (does not confirm due to UI bug!)\nTAB/ Controller
+    \"Select\": Change language / Cambiar idioma. "
+  _setLanguage: {fileID: 0}
+  _tutText: {fileID: 0}
+  _tutImage: {fileID: 0}
+--- !u!1 &86259587838162585
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86259587838162584}
+  - component: {fileID: 9218090474983826875}
+  - component: {fileID: 86259587838162587}
+  m_Layer: 0
+  m_Name: TriggerEnd
+  m_TagString: Tutorial
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86259587838162584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86259587838162585}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 38.000153, y: 1, z: -40.0008}
+  m_LocalScale: {x: 5, y: 1, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 86259587478570611}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &9218090474983826875
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86259587838162585}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &86259587838162587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86259587838162585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e7aaa2ce543464a80f3a44ad94df41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tutorialText: "Eso es todo! \r\nGolpea el gong para empezar!\n\r\nMuchas gracias
+    por probar \"Fractured\" Espero que te diviertas!"
+  _tutorialTextEN: 'That''s it!
+
+    Hit that gong to start the game!
+
+
+    Thank
+    you for trying "Fragmented", I hope you have fun!'
+  _setLanguage: {fileID: 0}
+  _tutText: {fileID: 0}
+  _tutImage: {fileID: 0}
