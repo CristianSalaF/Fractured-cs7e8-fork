@@ -1,4 +1,4 @@
-# Fractured-GameDevTV-Jam
+# Fractured-GameDevTV-public
 Fractured © 2022 by Csf91 is licensed under CC BY-NC 4.0
 
 https://twitter.com/Csf91Dev 
