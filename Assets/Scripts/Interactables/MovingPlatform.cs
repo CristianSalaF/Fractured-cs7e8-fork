@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
@@ -71,7 +68,7 @@ public class MovingPlatform : MonoBehaviour
     {
         _canMove = false;
         
-        Debug.Log("Waiting: " + time);
+        //Debug.Log("Waiting: " + time);
         yield return new WaitForSeconds(time);
         
         _canMove = true;

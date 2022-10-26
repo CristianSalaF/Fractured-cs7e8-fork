@@ -312,12 +312,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tutorialText: "Bienvenido/a a Fragmented!\n\r\nPara moverte, usa las teclas WASD,
     las flechas del teclado, \no el jostick izquierdo del mando.\n\nPara saltar el
-    tutorial, ve a la derecha.\n\nESC: Salir del juego (no confirma debido a bug
-    de UI !).\nTAB/ \"Select\" button: Cambiar Idioma / Change language."
+    tutorial, ve a la derecha.\n\nESC: Men\xFA de pausa, ajustes de sonido.\nTAB/
+    \"Select\" button: Cambiar Idioma / Change language."
   _tutorialTextEN: "Welcome to Fragmented!.\n\nYou can move by pressing WASD, the
     arrow keys, \nor your controller's left joystick.\n\nTo skip the tutorial, go
-    to the right.\n\nESC: Quit game (does not confirm due to UI bug!)\nTAB/ Controller
-    \"Select\": Change language / Cambiar idioma. "
+    to the right.\n\nESC: Pause menu, sound settings.\nTAB/ Controller \"Select\":
+    Change language / Cambiar idioma. "
   _setLanguage: {fileID: 0}
   _tutText: {fileID: 0}
   _tutImage: {fileID: 0}

@@ -8,20 +8,19 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    //unused due to bug, check GameManager.cs for details.
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private SetLanguage _setLanguageScript;
 
     [SerializeField] private float _speed = 20;
-    [SerializeField] private VirtualCameraHandler _freeLookCamera;
     
-    //audio sources
     private AudioSource _sndFragmentPickup;
     private AudioSource _sndGong;
 
     private Rigidbody _rigidbodyPlayer;
+    private Vector3 _mainCamDir;
 
-    private int _playerInputMode = 8;
+    private float _mInputHorizontal;
+    private float _mInputVertical;
 
     private InputMaster _inputMaster;
     private Vector3 _playerMovement = Vector3.zero;
@@ -33,23 +32,25 @@ public class PlayerController : MonoBehaviour
         
         _inputMaster = new InputMaster();
 
-        _inputMaster.Player.MoveHorizontal.performed += mInput 
-            => MovePlayer(mInput.ReadValue<float>(), true);
-        _inputMaster.Player.MoveVertical.performed += mInput 
-            => MovePlayer(mInput.ReadValue<float>(), false);
+        _inputMaster.Player.MoveHorizontal.performed += mInputHor 
+            => SetHorMovement(mInputHor.ReadValue<float>());
+        _inputMaster.Player.MoveVertical.performed += mInputVer 
+            => SetVerMovement(mInputVer.ReadValue<float>());
         _inputMaster.Player.BrakeBall.performed += mInput => StopMoving();
         
-        //check GameManager.cs for details about the bug.
-        //handling the calls from player's input instead so it at least is playable
-        // _inputMaster.Player.PauseGame.performed += mInput => _gameManager.PauseGame();
+        _inputMaster.Player.PauseGame.performed += mInput => _gameManager.PauseGame();
         _inputMaster.Player.ToggleLang.performed += mInput => _setLanguageScript.ToggleLang();
         _inputMaster.Player.Retry.performed += mInput => ReloadScene();
-        _inputMaster.Player.QuitGame.performed += mInput => Application.Quit();
     }
 
     void Start()
     { 
         _rigidbodyPlayer = GetComponent<Rigidbody>();
+
+        if (Camera.main != null)
+        {
+            _mainCamDir = Camera.main.transform.forward;
+        }
         
         _sndFragmentPickup = GameObject.Find("sndFragment").GetComponent<AudioSource>();
         _sndGong = GameObject.Find("sndGong").GetComponent<AudioSource>();
@@ -59,73 +60,36 @@ public class PlayerController : MonoBehaviour
     {
         //Inputs will modify the _playerMovement v3 in the appropriate axis
         //Then this will add it as torque *10 * _speed (by default 50) 
-        if (_inputMaster.Player.MoveHorizontal.inProgress || _inputMaster.Player.MoveVertical.inProgress)
+        if (_playerMovement != Vector3.zero)
         {
-            //TODO: Change .AddTorque for .Velocity += (same vector input, multiplied by 1 to 5 max)
-            //TODO: Input directions will become messed up, re-sort the directions.
-            //Debug.Log("Trying to move! X :" + _playerMovement.x + ", Z: " + _playerMovement.z);
-                _rigidbodyPlayer.AddTorque(_playerMovement * _speed, ForceMode.Acceleration);
+            _rigidbodyPlayer.AddTorque(new Vector3(_playerMovement.x, _playerMovement.y, 
+                _playerMovement.z) * _speed, ForceMode.Acceleration);
         }
+        
+        if (Camera.main != null)
+        {
+            _mainCamDir = Camera.main.transform.forward;
+            
+            Vector3 controlDirection = new Vector3(_mInputVertical, 0, _mInputHorizontal);
+            _playerMovement = Camera.main.transform.TransformDirection(controlDirection);
+        }
+
+        //Debug.DrawLine (pos, pos + dir * 10, Color.blue, 1f);
+        //Debug.DrawLine(pos, pos + _mainCamDir * 10, Color.red, 1f);
     }
 
-    private void MovePlayer(float mInput, bool horizontal)
+    private void SetHorMovement(float mInputHor)
     {
-        if (horizontal)
-        {
-            _playerMovement = new Vector3(_playerMovement.x, _playerMovement.y, mInput);
-        }
-        else
-        {
-            _playerMovement = new Vector3(mInput, _playerMovement.y, _playerMovement.z);
-        }
-
-        //Debug.Log("X: " + _playerMovement.x + ", Y: " + _playerMovement.y + ", Z: " + _playerMovement.z);
-        
-        _playerInputMode = _freeLookCamera.GetVirtXValue();
-        _playerMovement = ParseInput();
+        _mInputHorizontal = mInputHor;
     }
-
-    private Vector3 ParseInput()
+    
+    private void SetVerMovement(float mInputVer)
     {
-        //using bloq num as reference: 4=Left, 6=Right, 8=Up, 2=down), obtained from CameraController script
-        //This is sent as a int from the VirtualCameraHandler, use numpad as reference:
-        //8 forward, 4 left, 6 right, 2 back for "forward" camera/movement direction mapping.
-        Vector3 parsedInput = Vector3.zero;
-        
-        switch (_playerInputMode)
-        {
-            //x default is vertical axis, Z is horizontal
-            //x+ forward, x- back;
-            //z+ = left, z- = right;
-            
-            case 4:
-                //up is left
-                parsedInput = new Vector3((_playerMovement.z * -1),_playerMovement.y,_playerMovement.x);
-                break;
-            case 6:
-                //up is right
-                parsedInput = new Vector3(_playerMovement.z,_playerMovement.y,(_playerMovement.x * -1));
-                break;
-            case 8:
-                //up is up
-                parsedInput = _playerMovement;
-                break;
-            case 2:
-                //up is down
-                parsedInput = new Vector3((_playerMovement.x * -1), _playerMovement.y, (_playerMovement.z * -1));
-                break;
-            
-        }
-        
-        // Debug.Log("inputmode (_forwardDirection) is: " + _playerInputMode);
-        
-        return parsedInput;
+        _mInputVertical = mInputVer;
     }
 
     private void StopMoving()
     {
-        _playerInputMode = _freeLookCamera.GetVirtXValue();
-        
         //Debug.Log("Stopping movement");
         _playerMovement = Vector3.zero;
         
